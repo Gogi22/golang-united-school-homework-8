@@ -34,7 +34,6 @@ func Perform(args Arguments, writer io.Writer) error {
 		return fmt.Errorf("-operation flag has to be specified")
 	default:
 		return fmt.Errorf("Operation %s not allowed!", operation)
-		break
 	}
 
 	return nil
@@ -139,7 +138,7 @@ func removeOperation(args Arguments, writer io.Writer) error {
 		}
 	}
 
-	_, err = writer.Write([]byte(fmt.Sprintf("Item with id %s not found", args["Id"])))
+	_, err = writer.Write([]byte(fmt.Sprintf("Item with id %s not found", args["id"])))
 	return err
 }
 
