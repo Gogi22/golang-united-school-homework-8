@@ -139,7 +139,7 @@ func removeOperation(args Arguments, writer io.Writer) error {
 		}
 	}
 
-	_, err = writer.Write([]byte(fmt.Sprintf("Item with Id %s not found", args["Id"])))
+	_, err = writer.Write([]byte(fmt.Sprintf("Item with id %s not found", args["Id"])))
 	return err
 }
 
