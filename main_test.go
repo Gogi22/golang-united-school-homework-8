@@ -16,7 +16,7 @@ func TestOperationMissingError(t *testing.T) {
 
 	expectedError := "-operation flag has to be specified"
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "",
 		"item":      "",
 		"fileName":  fileName,
@@ -35,7 +35,7 @@ func TestOperationMissingError(t *testing.T) {
 func TestWrongOperationError(t *testing.T) {
 	var buffer bytes.Buffer
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "abcd",
 		"item":      "",
 		"fileName":  fileName,
@@ -56,7 +56,7 @@ func TestWrongOperationError(t *testing.T) {
 func TestFileNameMissingError(t *testing.T) {
 	var buffer bytes.Buffer
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "list",
 		"item":      "",
 		"fileName":  "",
@@ -77,7 +77,7 @@ func TestFileNameMissingError(t *testing.T) {
 // List operation tests
 func TestListOperation(t *testing.T) {
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "list",
 		"item":      "",
 		"fileName":  fileName,
@@ -90,7 +90,7 @@ func TestListOperation(t *testing.T) {
 		t.Error(err)
 	}
 
-	existingItems := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34},{\"id\":\"2\",\"email\":\"tes2@test.com\",\"age\":32}]"
+	existingItems := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34},{\"Id\":\"2\",\"Email\":\"tes2@test.com\",\"Age\":32}]"
 
 	file.Write([]byte(existingItems))
 	file.Close()
@@ -123,7 +123,7 @@ func TestListOperation(t *testing.T) {
 func TestAddingOperationMissingItem(t *testing.T) {
 	var buffer bytes.Buffer
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "add",
 		"item":      "",
 		"fileName":  fileName,
@@ -151,19 +151,19 @@ func TestAddingOperationSameID(t *testing.T) {
 		t.Error(err)
 	}
 
-	existingItem := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34}]"
+	existingItem := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34}]"
 
 	file.Write([]byte(existingItem))
 	file.Close()
 
-	item := "{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34}"
+	item := "{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34}"
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "add",
 		"item":      item,
 		"fileName":  fileName,
 	}
-	expectedOutput := "Item with id 1 already exists"
+	expectedOutput := "Item with Id 1 already exists"
 
 	err = Perform(args, &buffer)
 	if err != nil {
@@ -180,10 +180,10 @@ func TestAddingOperationSameID(t *testing.T) {
 func TestAddingOperation(t *testing.T) {
 	var buffer bytes.Buffer
 
-	expectedFileContent := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34}]"
-	itemToAdd := "{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34}"
+	expectedFileContent := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34}]"
+	itemToAdd := "{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34}"
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "add",
 		"item":      itemToAdd,
 		"fileName":  fileName,
@@ -215,17 +215,17 @@ func TestAddingOperation(t *testing.T) {
 func TestFindByIdOperationMissingID(t *testing.T) {
 	var buffer bytes.Buffer
 	args := Arguments{
-		"id":        "",
-		"operation": "findById",
+		"Id":        "",
+		"operation": "findByIdOperation",
 		"item":      "",
 		"fileName":  fileName,
 	}
-	expectedError := "-id flag has to be specified"
+	expectedError := "-Id flag has to be specified"
 
 	err := Perform(args, &buffer)
 
 	if err == nil {
-		t.Error("Expect error when -id flag is missing")
+		t.Error("Expect error when -Id flag is missing")
 	}
 
 	if err.Error() != expectedError {
@@ -243,15 +243,15 @@ func TestFindByIdOperation(t *testing.T) {
 		t.Error(err)
 	}
 
-	existingItems := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34},{\"id\":\"2\",\"email\":\"test2@test.com\",\"age\":31}]"
+	existingItems := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34},{\"Id\":\"2\",\"Email\":\"test2@test.com\",\"Age\":31}]"
 
 	file.Write([]byte(existingItems))
 	file.Close()
 
-	expectedOutput := "{\"id\":\"2\",\"email\":\"test2@test.com\",\"age\":31}"
+	expectedOutput := "{\"Id\":\"2\",\"Email\":\"test2@test.com\",\"Age\":31}"
 	args := Arguments{
-		"id":        "2",
-		"operation": "findById",
+		"Id":        "2",
+		"operation": "findByIdOperation",
 		"item":      "",
 		"fileName":  fileName,
 	}
@@ -278,15 +278,15 @@ func TestFindByIdOperationWrongID(t *testing.T) {
 		t.Error(err)
 	}
 
-	existingItems := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34},{\"id\":\"2\",\"email\":\"test2@test.com\",\"age\":31}]"
+	existingItems := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34},{\"Id\":\"2\",\"Email\":\"test2@test.com\",\"Age\":31}]"
 
 	file.Write([]byte(existingItems))
 	file.Close()
 
 	expectedOutput := ""
 	args := Arguments{
-		"id":        "3",
-		"operation": "findById",
+		"Id":        "3",
+		"operation": "findByIdOperation",
 		"item":      "",
 		"fileName":  fileName,
 	}
@@ -308,18 +308,18 @@ func TestFindByIdOperationWrongID(t *testing.T) {
 func TestRemovingOperationMissingID(t *testing.T) {
 	var buffer bytes.Buffer
 	args := Arguments{
-		"id":        "",
+		"Id":        "",
 		"operation": "remove",
 		"item":      "",
 		"fileName":  fileName,
 	}
 
-	expectedError := "-id flag has to be specified"
+	expectedError := "-Id flag has to be specified"
 
 	err := Perform(args, &buffer)
 
 	if err == nil {
-		t.Error("Error has to be shown when -id flag is missing")
+		t.Error("Error has to be shown when -Id flag is missing")
 	}
 
 	if err.Error() != expectedError {
@@ -337,14 +337,14 @@ func TestRemovingOperationWrongID(t *testing.T) {
 		t.Error(err)
 	}
 
-	existingItems := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34}]"
+	existingItems := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34}]"
 
 	file.Write([]byte(existingItems))
 	file.Close()
 
-	expectedOutput := "Item with id 2 not found"
+	expectedOutput := "Item with Id 2 not found"
 	args := Arguments{
-		"id":        "2",
+		"Id":        "2",
 		"operation": "remove",
 		"item":      "",
 		"fileName":  fileName,
@@ -372,13 +372,13 @@ func TestRemovingOperation(t *testing.T) {
 		t.Error(err)
 	}
 
-	existingItems := "[{\"id\":\"1\",\"email\":\"test@test.com\",\"age\":34},{\"id\":\"2\",\"email\":\"test2@test.com\",\"age\":31}]"
+	existingItems := "[{\"Id\":\"1\",\"Email\":\"test@test.com\",\"Age\":34},{\"Id\":\"2\",\"Email\":\"test2@test.com\",\"Age\":31}]"
 
 	file.Write([]byte(existingItems))
 	file.Close()
-	expectedFileContent := "[{\"id\":\"2\",\"email\":\"test2@test.com\",\"age\":31}]"
+	expectedFileContent := "[{\"Id\":\"2\",\"Email\":\"test2@test.com\",\"Age\":31}]"
 	args := Arguments{
-		"id":        "1",
+		"Id":        "1",
 		"operation": "remove",
 		"item":      "",
 		"fileName":  fileName,
