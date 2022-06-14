@@ -28,7 +28,7 @@ func Perform(args Arguments, writer io.Writer) error {
 		return listOperation(args, writer)
 	case "remove":
 		return removeOperation(args, writer)
-	case "findByIdOperation":
+	case "findById":
 		return findByIdOperation(args, writer)
 	case "":
 		return fmt.Errorf("-operation flag has to be specified")
@@ -56,7 +56,7 @@ func addOperation(args Arguments, writer io.Writer) error {
 	}
 
 	if itemExists(people, item.Id) {
-		_, err = writer.Write([]byte(fmt.Sprintf("Item with Id %s already exists", item.Id)))
+		_, err = writer.Write([]byte(fmt.Sprintf("Item with id %s already exists", item.Id)))
 		return err
 	}
 
@@ -95,7 +95,7 @@ func listOperation(args Arguments, writer io.Writer) error {
 
 func findByIdOperation(args Arguments, writer io.Writer) error {
 	if args["Id"] == "" {
-		return fmt.Errorf("-Id flag has to be specified")
+		return fmt.Errorf("-id flag has to be specified")
 	}
 
 	people, err := getPeople(args["fileName"])
@@ -119,7 +119,7 @@ func findByIdOperation(args Arguments, writer io.Writer) error {
 
 func removeOperation(args Arguments, writer io.Writer) error {
 	if args["Id"] == "" {
-		return fmt.Errorf("-Id flag has to be specified")
+		return fmt.Errorf("-id flag has to be specified")
 	}
 
 	people, err := getPeople(args["fileName"])

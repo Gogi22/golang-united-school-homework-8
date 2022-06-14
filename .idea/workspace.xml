@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b72ff3d8-a82b-49f9-8d92-c8b8a39f3a72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/golang-united-school-homework-8.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/main_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,18 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
-  <component name="RunManager" selected="Go Test.TestAddingOperationSameID in golang-united-school-homework-8">
+  <component name="RunManager" selected="Go Test.TestRemovingOperationMissingID in golang-united-school-homework-8">
+    <configuration name="TestAddingOperation in golang-united-school-homework-8" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="golang-united-school-homework-8" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="golang-united-school-homework-8" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestAddingOperation\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestAddingOperationMissingItem in golang-united-school-homework-8" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="golang-united-school-homework-8" />
       <working_directory value="$PROJECT_DIR$" />
@@ -81,17 +87,6 @@
       <pattern value="^\QTestAddingOperationSameID\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestFileNameMissingError in golang-united-school-homework-8" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="golang-united-school-homework-8" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="golang-united-school-homework-8" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestFileNameMissingError\E$" />
-      <method v="2" />
-    </configuration>
     <configuration name="TestListOperation in golang-united-school-homework-8" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="golang-united-school-homework-8" />
       <working_directory value="$PROJECT_DIR$" />
@@ -103,7 +98,7 @@
       <pattern value="^\QTestListOperation\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestWrongOperationError in golang-united-school-homework-8" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRemovingOperationMissingID in golang-united-school-homework-8" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="golang-united-school-homework-8" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
@@ -111,16 +106,16 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestWrongOperationError\E$" />
+      <pattern value="^\QTestRemovingOperationMissingID\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestRemovingOperationMissingID in golang-united-school-homework-8" />
+        <item itemvalue="Go Test.TestAddingOperation in golang-united-school-homework-8" />
         <item itemvalue="Go Test.TestAddingOperationSameID in golang-united-school-homework-8" />
         <item itemvalue="Go Test.TestAddingOperationMissingItem in golang-united-school-homework-8" />
         <item itemvalue="Go Test.TestListOperation in golang-united-school-homework-8" />
-        <item itemvalue="Go Test.TestFileNameMissingError in golang-united-school-homework-8" />
-        <item itemvalue="Go Test.TestWrongOperationError in golang-united-school-homework-8" />
       </list>
     </recent_temporary>
   </component>
@@ -141,16 +136,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/main.go</url>
-          <line>47</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
