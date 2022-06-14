@@ -94,7 +94,7 @@ func listOperation(args Arguments, writer io.Writer) error {
 }
 
 func findByIdOperation(args Arguments, writer io.Writer) error {
-	if args["Id"] == "" {
+	if args["id"] == "" {
 		return fmt.Errorf("-id flag has to be specified")
 	}
 
@@ -104,7 +104,7 @@ func findByIdOperation(args Arguments, writer io.Writer) error {
 	}
 
 	for _, x := range people {
-		if x.Id == args["Id"] {
+		if x.Id == args["id"] {
 			person, err := json.Marshal(x)
 			if err != nil {
 				return err
@@ -118,7 +118,7 @@ func findByIdOperation(args Arguments, writer io.Writer) error {
 }
 
 func removeOperation(args Arguments, writer io.Writer) error {
-	if args["Id"] == "" {
+	if args["id"] == "" {
 		return fmt.Errorf("-id flag has to be specified")
 	}
 
